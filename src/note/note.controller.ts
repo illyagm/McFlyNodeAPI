@@ -14,16 +14,44 @@ export class NoteController {
 
   async findAll(): Promise<Note[]> {
 
-    return this.notesService.findAll();
+    return await this.notesService.findAll();
 
   }
-  @Post()
 
-  async create(@Body() createNoteDto: CreateNoteDto) {
-    const noteCreated = this.notesService.create(createNoteDto);
+  @Get('/findById')
+
+  async findById(@Body() noteId: any): Promise<Note> {
+
+    return await this.notesService.findById(noteId.noteId);
+
+  }
+
+  @Get('/allFavorites')
+
+  async findAllFavorites(): Promise<Note[]> {
+
+    return await this.notesService.findAllFavorites();
+
+  }
+
+  @Post('/createNote')
+
+  async create(@Body() createNoteDto: CreateNoteDto): Promise<Note> {
+
+    const noteCreated = await this.notesService.create(createNoteDto);
+
     return noteCreated;
 
   }
 
+  @Post('/setFavorite')
+
+  async setFavorite(@Body() noteId: any):Promise<Note> {
+
+    const setNoteFavorite = await this.notesService.setFavorite(noteId.noteId);
+
+    return setNoteFavorite;
+
+  }
 
 }

@@ -7,26 +7,71 @@ import { Note, NoteDocument } from './schemas/note.schema';
 import { CreateNoteDto } from './dto/create-note.dto';
 @Injectable()
 export class NoteService {
+
     private readonly notes: Note[] = [];
+
     constructor(
         @InjectModel(Note.name) private noteModel: Model<NoteDocument>,
         @InjectConnection() private connection: Connection
-        ){}
+    ) { }
 
 
-    //async create
+    //create new note
     async create(createNoteDto: CreateNoteDto): Promise<Note> {
 
         const createdNote = new this.noteModel(createNoteDto);
-        return createdNote.save();
+        return await createdNote.save();
 
     }
 
+    //set note as favorite
+    async setFavorite(noteId: string): Promise<any> {
+
+
+        const noteCheckFavorite = await this.noteModel.findById({ _id: noteId });
+
+
+        console.log(!noteCheckFavorite.isFavorite);
+        
+        if (!noteCheckFavorite.isFavorite) {
+
+            const noteSetFavorite = await this.noteModel.findByIdAndUpdate(noteId, { isFavorite: true });
+
+            return noteSetFavorite;
+
+        } else if (noteCheckFavorite.isFavorite) {
+
+            const noteSetFavorite = await this.noteModel.findByIdAndUpdate(noteId, { isFavorite: false });
+
+            return noteSetFavorite;
+
+        } else {
+
+            return 'Something went wrong...'
+
+        }
+
+
+    }
+
+    //find all notes
     async findAll(): Promise<Note[]> {
 
-        return this.noteModel.find().exec();
-     
-      }
+        return await this.noteModel.find().exec();
+
+    }
+    //find one note by id
+    async findById(noteId: string): Promise<Note> {
+
+        return await this.noteModel.findById({ _id: noteId }).exec();
+
+    }
+    //find all notes marked as favorite
+    async findAllFavorites(): Promise<Note[]> {
+
+        return await this.noteModel.find({ isFavorite: true });
+
+    }
 
 
 }
