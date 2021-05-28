@@ -14,7 +14,7 @@ POSTMAN is highly recommended for testing the functionality.
 
 ##### ROUTES
 
-![Alt text](img/routes.PNG?raw=true "Routes")
+![Alt text](img/routes.png?raw=true "Routes")
 
 ### McFlyNodeAPI
 
