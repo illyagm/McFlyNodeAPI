@@ -1,11 +1,12 @@
 ## McFlyNodeAPI
 
 Simple API, giving the possibility for:
--Creating notes
--Setting them as favorites
--Find them all
--Find one by id
--Setting/unsetting note as 'favorite'
+
+1. Creating notes
+2. Setting them as favorites
+3. Find all notes
+4. Find note by id
+5. Setting/unsetting note as 'favorite'
 
 ##### -Pre Requisites-
 
