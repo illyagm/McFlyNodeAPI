@@ -7,6 +7,12 @@ Simple API, giving the possibility for:
 3. Find all notes
 4. Find note by id
 5. Setting/unsetting note as 'favorite'
+
+## Commands for setting up the project:
+
+1. npm i (installing all the dependencies)
+2. npm run start (build the dist folder and run the API)
+3. npm run test (for testing the controller methods)
 ## Tecnologies used
 
 1. NestJs
@@ -14,22 +20,16 @@ Simple API, giving the possibility for:
 3. Mongoose
 4. Jest
 
-##### -Pre Requisites-
+## Pre Requisites
 
 1. YOU MUST HAVE mongo installed on your system.
 2. POSTMAN is highly recommended for testing the functionality. 
 
-##### Commands for setting up the project:
-
-1. npm i (installing all the dependencies)
-2. npm run start (build the dist folder and run the API)
-3. npm run test (for testing the controller methods)
-
-##### ROUTES
+## ROUTES
 
 ![Alt text](img/routes.png?raw=true "Routes")
 
-### McFlyNodeAPI
+## DOCUMENTATION
 
 Full documentation with routes and payloads can be found in the link below:
 
