@@ -7,11 +7,23 @@ Simple API, giving the possibility for:
 3. Find all notes
 4. Find note by id
 5. Setting/unsetting note as 'favorite'
+## Tecnologies used
+
+1. NestJs
+2. TypeScrypt
+3. Mongoose
+4. Jest
 
 ##### -Pre Requisites-
 
-YOU MUST HAVE mongo installed on your system.
-POSTMAN is highly recommended for testing the functionality. 
+1. YOU MUST HAVE mongo installed on your system.
+2. POSTMAN is highly recommended for testing the functionality. 
+
+##### Commands for setting up the project:
+
+1. npm i (installing all the dependencies)
+2. npm run start (build the dist folder and run the API)
+3. npm run test (for testing the controller methods)
 
 ##### ROUTES
 
